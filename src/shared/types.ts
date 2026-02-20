@@ -141,6 +141,7 @@ export type CarFormInput = {
   model: string,
   manufacturer: string,
   carNumber: string,
+  type?: string,
 }
 
 // customer - data

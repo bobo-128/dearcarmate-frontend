@@ -1,3 +1,5 @@
+
+import { getCarTypeByModel } from '../utils/car'
 import { instance as axios } from './axios'
 import {
   CarFormInput,
@@ -88,12 +90,20 @@ export const deleteCar = async (id: number) => {
 }
 
 export const editCar = async (id: number, data: CarFormInput) => {
-  const response = await axios.patch<CarType>(`/cars/${id}`, data)
+  const payload = {
+    ...data,
+    type: getCarTypeByModel(data.model) 
+  };
+  const response = await axios.patch<CarType>(`/cars/${id}`, payload)
   return response.data
 }
 
 export const registerCar = async (data: CarFormInput) => {
-  const response = await axios.post<CarType>('/cars', data)
+    const payload = {
+    ...data,
+    type: getCarTypeByModel(data.model) 
+  };
+  const response = await axios.post<CarType>('/cars', payload)
   return response.data
 }
 
