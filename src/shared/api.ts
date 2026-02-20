@@ -90,11 +90,8 @@ export const deleteCar = async (id: number) => {
 }
 
 export const editCar = async (id: number, data: CarFormInput) => {
-  const payload = {
-    ...data,
-    type: getCarTypeByModel(data.model) 
-  };
-  const response = await axios.patch<CarType>(`/cars/${id}`, payload)
+const { type, ...payloadWithoutType } = data as any;
+  const response = await axios.patch<CarType>(`/cars/${id}`, payloadWithoutType)
   return response.data
 }
 
