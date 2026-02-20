@@ -1,5 +1,5 @@
 
-import { getCarTypeByModel } from '../utils/car'
+import { getCarTypeByModel } from './car'
 import { instance as axios } from './axios'
 import {
   CarFormInput,
