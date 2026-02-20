@@ -132,8 +132,8 @@ export type CarModel = {
 
 // car - form
 export type CarFormInput = {
-  accidentDetails: string,
-  explanation: string,
+  accidentDetails?: string,
+  explanation?: string,
   accidentCount: number,
   price: number,
   mileage: number,
